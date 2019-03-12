@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
 
    }
    dashboardGuarder():void {
-     this.routeGuarder.dashboardGuard();
+     this.routeGuarder.canActivate();
    }
    //method for adding user name
    AddUser():void {

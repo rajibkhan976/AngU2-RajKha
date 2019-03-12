@@ -12,7 +12,7 @@ export class DashboardGuardService implements CanActivate {
 
   }
 
-  public dashboardGuard(): boolean {
+  canActivate(): boolean {
     if (!this.authorized) {
       this.router.navigate(['/login']);
       return false;
