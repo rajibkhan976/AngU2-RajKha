@@ -1,0 +1,25 @@
+<div *ngIf="routeGuarder.authorized" class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>
+        {{name}}
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-5">
+      <!-- sending the userList array as an input to users-list component -->
+      <app-users-list [myUsers]="userList"></app-users-list>
+    </div>
+    <div class="col-5">
+        <div class="jumbotron">
+          <div class="form-group">
+             <!-- two way data binding -->
+            <input [(ngModel)]="addUser" (keyup)="onKey($event)" type="text" class="form-control" placeholder="New user.." required>
+          </div>
+          <!-- Output event binding through edit-user component -->
+          <app-edit-user (onChangeAdd)="AddUser()" (onChangeRemove)="RemoveUser()"></app-edit-user>
+        </div>
+    </div>
+  </div>
+</div>
