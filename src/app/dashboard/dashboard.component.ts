@@ -15,19 +15,12 @@ export class DashboardComponent implements OnInit {
   userList: string[] = ['Rajib','Hossain','Khan'];
   addUser:string;
 
-  constructor(private authService: AuthServiceService, private router: Router, private routeGuarder: DashboardGuardService) {
-    if (authService.loggedUser !== undefined) {
-      routeGuarder.authorized = true;
-    } else {
-      routeGuarder.authorized = false;
-    }
+  constructor(private authService: AuthServiceService, private router: Router) {
+    authService.loggedUser = this.authService.checkIfLoggedIn();
    }
 
    ngOnInit() {
 
-   }
-   dashboardGuarder():void {
-     this.routeGuarder.canActivate();
    }
    //method for adding user name
    AddUser():void {

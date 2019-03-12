@@ -17,15 +17,19 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
+
   }
 
   logIn():void {
-     this.authService.logIn(this.userName);
-     if (this.authService.loggedUser === 'Rajib') {
-       this.router.navigate(['/dashboard']);
-     } else {
-       this.router.navigate(['/login']);
-     }
+    if (this.userName === 'Rajib') {
+      this.authService.logIn(this.userName);
+      this.loggedUser = this.authService.loggedUser;
+      if (this.loggedUser ===  'Rajib') {
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.router.navigate(['/login']);
+      }
+    }
    }
 
    logOut():void {

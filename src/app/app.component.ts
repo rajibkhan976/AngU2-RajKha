@@ -9,12 +9,9 @@ import { AuthServiceService } from './auth-service.service';
 export class AppComponent implements OnInit {
 
   title = 'AngU2-RajKha';
-  loggedUser: string;
 
   constructor (private authService: AuthServiceService) {
-    console.log(this.loggedUser);
-    this.loggedUser = this.authService.checkIfLoggedIn();
-    console.log(this.loggedUser);
+    authService.loggedUser = this.authService.checkIfLoggedIn();
   }
 
   ngOnInit() {

@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
+import { AuthServiceService } from './auth-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardGuardService implements CanActivate {
 
-  authorized: boolean = false;
-
-  constructor(public router: Router) {
+  constructor(public auth: AuthServiceService, public router: Router) {
 
   }
 
   canActivate(): boolean {
-    if (!this.authorized) {
+    if (!this.auth.checkIfLoggedIn()) {
       this.router.navigate(['/login']);
       return false;
     }
