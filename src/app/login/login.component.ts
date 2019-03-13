@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../auth-service.service';
 import { Router } from '@angular/router';
 
+/* This class controls the login and logout functionalities by using the methods of injected Auth service*/
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   userName: string;
   loggedUser: string;
-
+  //Authservice and router injected in the constructor
   constructor(private authService: AuthServiceService, private router: Router) {
     this.loggedUser = this.authService.checkIfLoggedIn();
    }
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
   }
-
+  //method that controls the user login through using Authservice login method
   logIn():void {
     if (this.userName === 'Rajib') {
       this.authService.logIn(this.userName);
@@ -31,10 +32,9 @@ export class LoginComponent implements OnInit {
       }
     }
    }
-
+   //method that controls the user log out through using Authservice logout method
    logOut():void {
      this.authService.logOut();
      this.loggedUser = undefined;
    }
-
 }

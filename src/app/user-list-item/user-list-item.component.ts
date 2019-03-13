@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './user-list-item.component.html',
   styleUrls: ['./user-list-item.component.css']
 })
+//This calss accepts the input from the user component and send the singleUser to the single-user component
 export class UserListItemComponent implements OnInit {
   //Input properties are defined
   @Input() singleUser:string;
@@ -17,7 +18,7 @@ export class UserListItemComponent implements OnInit {
 
    ngOnInit() {
    }
-
+   //method that sends the single user to the single-user component 
    navigate(): void {
      this.router.navigate(['/single-user', this.singleUser]);
    }

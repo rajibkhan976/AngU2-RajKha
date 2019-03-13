@@ -5,6 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css']
 })
+//This classaccepts the userList array as input and toggle the color of userlist items
 export class UsersListComponent {
   //Input property and properties for toggling color is defined
   @Input() myUsers: string[];

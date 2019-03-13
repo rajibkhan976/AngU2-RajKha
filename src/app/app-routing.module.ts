@@ -8,7 +8,7 @@ import { SingleUserComponent } from './single-user/single-user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthServiceService } from './auth-service.service';
 import { DashboardGuardService } from './dashboard-guard.service';
-
+//Defining the routes for the app
 const routes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'login', component: LoginComponent},
