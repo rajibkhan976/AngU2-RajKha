@@ -22,10 +22,10 @@ export class LoginComponent implements OnInit {
   }
   //method that controls the user login through using Authservice login method
   logIn():void {
-    if (this.userName === 'Rajib') {
+    if (this.userName != undefined) {
       this.authService.logIn(this.userName);
-      this.loggedUser = this.authService.loggedUser;
-      if (this.loggedUser ===  'Rajib') {
+      this.loggedUser = this.authService.checkIfLoggedIn();;
+      if (this.userName ===  this.loggedUser) {
         this.router.navigate(['/dashboard']);
       } else {
         this.router.navigate(['/login']);

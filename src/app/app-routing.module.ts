@@ -10,7 +10,7 @@ import { AuthServiceService } from './auth-service.service';
 import { DashboardGuardService } from './dashboard-guard.service';
 //Defining the routes for the app
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
+  {path: '', component: DashboardComponent, canActivate: [DashboardGuardService]},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [DashboardGuardService]},
   {path: 'single-user/:id', component:  SingleUserComponent},

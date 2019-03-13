@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../auth-service.service';
+import { DashboardGuardService } from '../dashboard-guard.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,7 +18,7 @@ export class DashboardComponent implements OnInit {
   userList: string[] = ['Rajib','Hossain','Khan'];
   addUser:string;
   //Authservice and router injected into the constructor
-  constructor(private authService: AuthServiceService, private router: Router) {
+  constructor(private authService: AuthServiceService, private dashGuard: DashboardGuardService, private router: Router) {
     authService.loggedUser = this.authService.checkIfLoggedIn();
    }
 
@@ -26,7 +27,9 @@ export class DashboardComponent implements OnInit {
    }
    //method for adding user name
    AddUser():void {
-       this.userList.unshift(this.addUser);
+   if(this.addUser != undefined) {
+     this.userList.unshift(this.addUser);
+    }   
    }
    //method for removing user name
    RemoveUser():void {
